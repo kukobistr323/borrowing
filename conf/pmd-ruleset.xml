@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ruleset name="Custom ruleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+    <rule ref="rulesets/java/imports.xml">
+        <exclude name="TooManyStaticImports"/>
+    </rule>
+    <rule ref="rulesets/java/design.xml">
+        <exclude name="SingularField"/>
+        <exclude name="ConfusingTernary"/>
+        <exclude name="ImmutableField"/>
+        <exclude name="AbstractClassWithoutAbstractMethod"/>
+        <exclude name="AbstractClassWithoutAnyMethod"/>
+        <exclude name="UncommentedEmptyConstructor"/>
+        <exclude name="MissingBreakInSwitch"/>
+        <exclude name="PreserveStackTrace"/>
+    </rule>
+    <rule ref="rulesets/java/controversial.xml">
+        <exclude name="AtLeastOneConstructor"/>
+        <exclude name="DefaultPackage"/>
+        <exclude name="OnlyOneReturn"/>
+        <exclude name="UseConcurrentHashMap"/>
+        <exclude name="CallSuperInConstructor"/>
+        <exclude name="DataflowAnomalyAnalysis"/>
+        <exclude name="AvoidFinalLocalVariable"/>
+        <exclude name="UseObjectForClearerAPI"/>
+    </rule>
+
+    <rule ref="rulesets/java/controversial.xml/NullAssignment">
+        <priority>5</priority>
+    </rule>
+    <rule ref="rulesets/java/design.xml/GodClass">
+        <priority>5</priority>
+    </rule>
+
+</ruleset>
