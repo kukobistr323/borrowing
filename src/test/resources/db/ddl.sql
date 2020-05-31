@@ -5,7 +5,7 @@ CREATE TABLE User
     id           IDENTITY PRIMARY KEY NOT NULL,
     first_name   VARCHAR(50)          NOT NULL,
     last_name    VARCHAR(50)          NOT NULL,
-    description  VARCHAR(50)          NOT NULL,
+    middle_name  VARCHAR(50)          NOT NULL,
     login        VARCHAR(50)          NOT NULL,
     password     VARCHAR(50)          NOT NULL,
     admin        BOOLEAN              NOT NULL,
