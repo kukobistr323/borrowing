@@ -1,6 +1,7 @@
 package com.borrowing.user.web;
 
 import com.borrowing.user.model.User;
+import com.borrowing.user.model.UserCreate;
 import com.borrowing.user.model.UserDto;
 import com.borrowing.user.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -25,6 +26,7 @@ import java.util.List;
 public class UserController {
 
     public static final String PATH_MAIN = "/users";
+    public static final String PATH_SIGN_IN = "/signup";
 
     private final UserService userService;
     private final ModelMapper modelMapper;
@@ -42,9 +44,9 @@ public class UserController {
         }.getType());
     }
 
-    @PostMapping
+    @PostMapping(value = PATH_SIGN_IN)
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody UserDto createUser(@RequestBody UserDto userDto) {
-        return modelMapper.map(userService.createUser(modelMapper.map(userDto, User.class)), UserDto.class);
+    public @ResponseBody UserDto createUser(@RequestBody UserCreate userCreate) {
+        return modelMapper.map(userService.createUser(modelMapper.map(userCreate, User.class)), UserDto.class);
     }
 }

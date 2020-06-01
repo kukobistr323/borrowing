@@ -1,8 +1,8 @@
 package com.borrowing.item.web;
 
-import com.borrowing.item.model.Item;
 import com.borrowing.item.model.ItemDto;
 import com.borrowing.item.service.ItemService;
+import com.borrowing.user.model.User;
 import com.borrowing.user.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -79,9 +79,8 @@ public class ItemController {
     @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody ItemDto createItem(@RequestBody ItemDto itemDto, Principal principal) {
-        Item item = modelMapper.map(itemDto, Item.class);
-        item.setOwner(userService.loadUserByLogin(principal.getName()));
-        return modelMapper.map(itemService.saveItem(item), ItemDto.class);
+    public @ResponseBody ItemDto createItem(@RequestBody String itemName, Principal principal) {
+        User user = userService.loadUserByLogin(principal.getName());
+        return modelMapper.map(itemService.saveItemByName(itemName, user), ItemDto.class);
     }
 }

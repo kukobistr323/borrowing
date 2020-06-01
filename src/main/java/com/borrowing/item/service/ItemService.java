@@ -2,6 +2,7 @@ package com.borrowing.item.service;
 
 import com.borrowing.item.model.Item;
 import com.borrowing.item.repository.ItemRepository;
+import com.borrowing.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,14 @@ public class ItemService {
     @Autowired
     public ItemService(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
+    }
+
+    public Item saveItemByName(String itemName, User user) {
+        return itemRepository.save(Item.builder()
+                .borrowed(false)
+                .name(itemName)
+                .owner(user)
+                .build());
     }
 
     public Item saveItem(Item item) {
