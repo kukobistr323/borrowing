@@ -18,7 +18,7 @@
         <java.version>11</java.version>
         <swagger.version>2.9.2</swagger.version>
         <postgresql.version>42.2.11</postgresql.version>
-        <h2.version>1.4.200</h2.version>
+        <h2.version>2.1.210</h2.version>
     </properties>
 
     <dependencies>
